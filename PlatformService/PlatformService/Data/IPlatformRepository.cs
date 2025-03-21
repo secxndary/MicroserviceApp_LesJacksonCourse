@@ -6,6 +6,6 @@ public interface IPlatformRepository
 {
     IEnumerable<Platform> GetAllPlatforms();
     Platform GetPlatformById(int id);
-    void CreatePlatform(Platform platform);
+    Platform CreatePlatform(Platform platform);
     bool SaveChanges();
 }

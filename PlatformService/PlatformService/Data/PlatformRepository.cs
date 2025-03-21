@@ -22,12 +22,14 @@ public class PlatformRepository : IPlatformRepository
         return _context.Platforms.FirstOrDefault(p => p.Id == id);
     }
 
-    public void CreatePlatform(Platform platform)
+    public Platform CreatePlatform(Platform platform)
     {
         if (platform is null)
             throw new ArgumentNullException(nameof(platform));
 
         _context.Platforms.Add(platform);
+
+        return platform;
     }
 
     public bool SaveChanges()
