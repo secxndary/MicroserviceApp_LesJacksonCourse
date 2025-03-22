@@ -4,11 +4,10 @@ metadata:
   name: platformnpservice-srv
 spec:
   type: NodePort
-  selector: 
+  selector:
     app: platformservice
   ports:
     - name: platformservice
       protocol: TCP
       port: 80
       targetPort: 80
-      

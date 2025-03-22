@@ -18,7 +18,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-Console.WriteLine($"CommandService Endpoint: {builder.Configuration["CommandServiceUrl"]}");
+Console.WriteLine($"--> CommandService Endpoint: {builder.Configuration["CommandServiceUrl"]}");
 
 var app = builder.Build();
 
@@ -29,7 +29,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
