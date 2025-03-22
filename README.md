@@ -44,4 +44,4 @@ https://kubernetes.github.io/ingress-nginx/deploy/#network-load-balancer-nlb
 kubectl get services
 ```
 В списке сервисов, в сервисе `platformnpservice-srv` в разделе PORT(S) скопировать сгенерированный порт формата 3хххх.
-Запрос отправить на `http://localhost:{platformnpservice-srv_PORT}`.
+Запрос отправить на `http://localhost:{platformnpservice-srv_PORT}`
