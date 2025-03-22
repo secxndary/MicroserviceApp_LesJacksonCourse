@@ -17,7 +17,7 @@ docker push {YOUR_DOCKER_ID}/commandservice
 ```
 
 
-#### 2.1. (Опционально) Запустить контейнеры для проверки синхронной связи между сервисами через HTTP:
+#### 2.1. (Опционально) Запустить контейнеры для проверки синхронной связи между сервисами через HTTP по ClusterIP:
 ```
 docker run -p 8080:80 {YOUR_DOCKER_ID}/platformservice
 docker run -p 8080:80 {YOUR_DOCKER_ID}/commandservice
