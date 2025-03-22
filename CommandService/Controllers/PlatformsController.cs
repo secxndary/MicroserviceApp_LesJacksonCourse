@@ -15,7 +15,7 @@ public class PlatformsController : Controller
     [HttpPost]
     public IActionResult InboundRequestTest()
     {
-        Console.WriteLine("--> Inbound POST at Command Service");
+        Console.WriteLine("--> Inbound POST # Command Service");
 
         return Ok("Inbound test from Platforms Controller");
     }
