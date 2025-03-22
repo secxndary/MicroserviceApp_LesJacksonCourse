@@ -1,4 +1,5 @@
 # Запуск проекта:
+
 ### 1. Добавить в файл hosts (`C:\Windows\system32\drivers\etc`) строку:
 ```
 127.0.0.1 acme.com
@@ -24,24 +25,31 @@ docker run -p 8080:80 {YOUR_DOCKER_ID}/commandservice
 ```
 
 
-### 3. Для запуска сервисов в Kubernetes с Ingress Nginx:
+### 3. Запустить сервисы в Kubernetes с Ingress Nginx:
 ```
 cd k8s
 kubectl apply -f platforms-depl.yaml
 kubectl apply -f commands-depl.yaml
 kubectl apply -f platforms-nodeport-srv.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.0/deploy/static/provider/aws/deploy.yaml
-kubectl apply -f ingress-srv.yaml 
-kubectl rollout restart deployment platforms-depl
-kubectl rollout restart deployment commands-depl
+kubectl apply -f ingress-srv.yaml
+kubectl apply -f local-pvc.yaml
 ```
 Найти команду `kubectl apply` с актуальной версией Ingress Nginx можно здесь:
 https://kubernetes.github.io/ingress-nginx/deploy/#network-load-balancer-nlb
 
 
-#### 3.1. (Опционально) Для проверки внешней связи PlatformService через NodePort:
+#### 3.1. (Опционально) Проверка внешней связи PlatformService через NodePort:
 ```
 kubectl get services
 ```
 В списке сервисов, в сервисе `platformnpservice-srv` в разделе PORT(S) скопировать сгенерированный порт формата 3хххх.
 Запрос отправить на `http://localhost:{platformnpservice-srv_PORT}`
+
+
+### 4. Добавить Local PVC и контейнер MSSQL Server с LoadBalancer и паролем, хранящемся в Secret:
+```
+kubectl apply -f local-pvc.yaml
+kubectl create secret generic mssql --from-literal=MSSQL_SA_PASSWORD="pa55w0rd!"
+kubectl apply -f mssql-plat-depl.yaml
+```
