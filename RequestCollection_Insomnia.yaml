@@ -1,0 +1,340 @@
+type: collection.insomnia.rest/5.0
+name: Les Jackson Microservices
+meta:
+  id: wrk_049b86d4c49545c29894cefe5424b2f0
+  created: 1742480577786
+  modified: 1742480577786
+collection:
+  - name: Local Dev
+    meta:
+      id: fld_f76146d4aa6a4240a0b8a151a882710c
+      created: 1742480591001
+      modified: 1742480591001
+      sortKey: -1742480591001
+    children:
+      - name: Platform Service
+        meta:
+          id: fld_f9fb9dacc3e64c30ac647f54c9689aeb
+          created: 1742480612842
+          modified: 1742480612842
+          sortKey: -1742480612842
+        children:
+          - url: https://localhost:5001/api/platforms
+            name: Get all platforms
+            meta:
+              id: req_84bd1725ca8d44c5a03843001c259d8c
+              created: 1742480615323
+              modified: 1742573860033
+              isPrivate: false
+              sortKey: -1742480615323
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: https://localhost:5001/api/platforms/4
+            name: Get platform by id
+            meta:
+              id: req_a010140c86cc47809361af2198ad13f0
+              created: 1742481019700
+              modified: 1742573862641
+              isPrivate: false
+              sortKey: -1742480615273
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: https://localhost:5001/api/platforms
+            name: Create platform
+            meta:
+              id: req_8ec3017b36e7485da7ec2579cb813e86
+              created: 1742481034786
+              modified: 1742579925085
+              isPrivate: false
+              sortKey: -1742480615223
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "name": "Docker",
+                  "publisher": "Docker, Inc.",
+                  "cost": "Free"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Command Service
+        meta:
+          id: fld_36ea97fc2aa149c9922d99cf016f51d3
+          created: 1742572211166
+          modified: 1742572211166
+          sortKey: -1742572211166
+        children:
+          - url: https://localhost:6001/api/c/platforms
+            name: Test Inbound conn
+            meta:
+              id: req_37bbe142953b4a76bc98ee35a48b545c
+              created: 1742572306541
+              modified: 1742573855940
+              isPrivate: false
+              sortKey: -1742572306541
+            method: POST
+            body:
+              mimeType: application/json
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+  - name: Docker Environment
+    meta:
+      id: fld_cfe1d53dc15b49e094da7871cfd6bc6c
+      created: 1742496363580
+      modified: 1742562184779
+      sortKey: -1742496363580
+    children:
+      - name: Platform Service
+        meta:
+          id: fld_3e24816929f246eb9b586effd525ba01
+          created: 1742496398354
+          modified: 1742562190553
+          sortKey: -1742562190401
+        children:
+          - url: http://localhost:8080/api/platforms
+            name: Get all platforms
+            meta:
+              id: req_b0936ea92ac94241b797be64e0906c36
+              created: 1742496398356
+              modified: 1742496467527
+              isPrivate: false
+              sortKey: -1742480615323
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/platforms/3
+            name: Get platform by id
+            meta:
+              id: req_0a5b148a3a874c089905a58bc39413b0
+              created: 1742496398358
+              modified: 1742496478094
+              isPrivate: false
+              sortKey: -1742480615273
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/platforms
+            name: Create platform
+            meta:
+              id: req_2e17d8fbc180477cade4e2139c4f7335
+              created: 1742496398359
+              modified: 1742562610202
+              isPrivate: false
+              sortKey: -1742480615223
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "name": "Docker",
+                  "publisher": "Docker, Inc.",
+                  "cost": "Free"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+  - name: k8s
+    meta:
+      id: fld_3b943596560141ba98fdb08097271d92
+      created: 1742562203982
+      modified: 1742562211653
+      sortKey: -1742496363680
+    children:
+      - name: Platform Service (Nginx)
+        meta:
+          id: fld_aec76126f50840e0b378e5a3f6dad740
+          created: 1742562203987
+          modified: 1742649626390
+          sortKey: -1742562190401
+        children:
+          - url: https://acme.com/api/platforms
+            name: Get all platforms
+            meta:
+              id: req_ab1e46585a744d90894d96e24f2818a3
+              created: 1742562203990
+              modified: 1742648563669
+              isPrivate: false
+              sortKey: -1742480615323
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: https://acme.com/api/platforms
+            name: Create platform
+            meta:
+              id: req_fc08ee5c30284367acd2d181948b4922
+              created: 1742562203994
+              modified: 1742648582104
+              isPrivate: false
+              sortKey: -1742480615223
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "name": "Docker",
+                  "publisher": "Docker, Inc.",
+                  "cost": "Free"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Platform Service (NodePort)
+        meta:
+          id: fld_50a2208d3aae49178212ba7f83dbc490
+          created: 1742642982766
+          modified: 1742649618702
+          sortKey: -1742529277040.5
+        children:
+          - url: http://localhost:31164/api/platforms
+            name: Get all platforms
+            meta:
+              id: req_1a75738348284d668fcf034cc8b35b2e
+              created: 1742642982769
+              modified: 1742642982769
+              isPrivate: false
+              sortKey: -1742480615323
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:31164/api/platforms
+            name: Create platform
+            meta:
+              id: req_f49006e8d6514da7aab1f0a39f4a350c
+              created: 1742642982772
+              modified: 1742642982772
+              isPrivate: false
+              sortKey: -1742480615223
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "name": "Docker",
+                  "publisher": "Docker, Inc.",
+                  "cost": "Free"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_e1afd9559e8a721023a0b734957dcb6f8f89b844
+    created: 1742480577828
+    modified: 1742480577828
+environments:
+  name: Base Environment
+  meta:
+    id: env_e1afd9559e8a721023a0b734957dcb6f8f89b844
+    created: 1742480577812
+    modified: 1742480577812
+    isPrivate: false
