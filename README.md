@@ -35,7 +35,7 @@ kubectl apply -f ingress-srv.yaml
 kubectl rollout restart deployment platforms-depl
 kubectl rollout restart deployment commands-depl
 ```
-Найти актуальную версию Ingress Nginx можно здесь:
+Найти команду `kubectl apply` с актуальной версией Ingress Nginx можно здесь:
 https://kubernetes.github.io/ingress-nginx/deploy/#network-load-balancer-nlb
 
 
