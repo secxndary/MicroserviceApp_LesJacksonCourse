@@ -39,7 +39,7 @@ kubectl apply -f local-pvc.yaml
 https://kubernetes.github.io/ingress-nginx/deploy/#network-load-balancer-nlb
 
 
-#### 3.1. (Опционально) Проверка внешней связи PlatformService через NodePort:
+#### 3.1. (Опционально) Проверка внешней связи с PlatformService через NodePort:
 ```
 kubectl get services
 ```
