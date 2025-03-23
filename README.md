@@ -1,5 +1,13 @@
 # Запуск проекта:
 
+#### 0. Необходимое установленное ПО:
+- .NET 6
+- dotnet ef (Command-line Tools 9.0.3)
+- Docker Desktop (4.38.0)
+- Kubernetes (Kubeadm 1.31.4)
+- (Опционально) Средство визуального просмотра БД в Docker (DBeaver, SSMS, etc.)
+
+
 ### 1. Добавить в файл hosts (`C:\Windows\system32\drivers\etc`) строку:
 ```
 127.0.0.1 acme.com
