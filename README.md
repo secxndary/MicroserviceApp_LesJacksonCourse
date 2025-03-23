@@ -61,3 +61,14 @@ kubectl apply -f local-pvc.yaml
 kubectl create secret generic mssql --from-literal=MSSQL_SA_PASSWORD="pa55w0rd!"
 kubectl apply -f mssql-plat-depl.yaml
 ```
+
+
+<hr />
+
+### Обновление docker image и k8s deployment (например, PlatformService):
+```
+cd PlatformService
+docker build -t {YOUR_DOCKER_ID}/platformservice .
+docker push {YOUR_DOCKER_ID}/platformservice
+kubectl rollout restart deployment platforms-depl
+```
