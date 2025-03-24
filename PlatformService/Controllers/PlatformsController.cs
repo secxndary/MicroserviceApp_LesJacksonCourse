@@ -33,7 +33,7 @@ public class PlatformsController : Controller
     }
 
     [HttpGet("{id:int}", Name = "GetPlatformById")]
-    public IActionResult GetPlatformById([FromRoute] int id)
+    public IActionResult GetPlatformById(int id)
     {
         var platform = _repository.GetPlatformById(id);
 

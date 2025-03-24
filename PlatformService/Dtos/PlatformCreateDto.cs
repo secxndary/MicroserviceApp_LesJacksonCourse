@@ -5,11 +5,11 @@ namespace PlatformService.Dtos;
 public sealed record PlatformCreateDto
 {
     [Required] 
-    public string Name { get; set; }
+    public string Name { get; init; }
 
     [Required] 
-    public string Publisher { get; set; }
+    public string Publisher { get; init; }
 
     [Required] 
-    public string Cost { get; set; }
+    public string Cost { get; init; }
 }

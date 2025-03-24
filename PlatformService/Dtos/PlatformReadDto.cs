@@ -2,8 +2,8 @@ namespace PlatformService.Dtos;
 
 public sealed record PlatformReadDto
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Publisher { get; set; }
-    public string Cost { get; set; }
+    public int Id { get; init; }
+    public string Name { get; init; }
+    public string Publisher { get; init; }
+    public string Cost { get; init; }
 }
