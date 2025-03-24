@@ -1,7 +1,12 @@
+using CommandService.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// builder.Services.AddDbContext<AppDbContext>(opts => 
-//     opts.UseInMemoryDatabase("InMem"));
+builder.Services.AddDbContext<AppDbContext>(opts => 
+    opts.UseInMemoryDatabase("InMem"));
+
+builder.Services.AddScoped<ICommandRepository, CommandRepository>();
 
 builder.Services.AddControllers();
 
