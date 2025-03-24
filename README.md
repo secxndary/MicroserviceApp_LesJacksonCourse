@@ -55,11 +55,17 @@ kubectl get services
 Запрос отправить на `http://localhost:{platformnpservice-srv_PORT}`
 
 
-### 4. Добавить Local PVC и контейнер MSSQL Server с LoadBalancer и паролем, хранящемся в Secret:
+### 4. Добавить Local PVC и контейнер MSSQL Server с ClusterIP, LoadBalancer и паролем, хранящемся в Secret:
 ```
 kubectl apply -f local-pvc.yaml
 kubectl create secret generic mssql --from-literal=MSSQL_SA_PASSWORD="pa55w0rd!"
 kubectl apply -f mssql-plat-depl.yaml
+```
+
+
+### 5. Добавить RabbitMQ (с ClusterIP и LoadBalancer):
+```
+kubectl apply -f rabbitmq-depl.yaml
 ```
 
 
