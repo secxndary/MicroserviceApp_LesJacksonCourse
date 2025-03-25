@@ -80,7 +80,7 @@ dotnet ef migrations add InitialMigration
 ```
 kubectl apply -f rabbitmq-depl.yaml
 ```
-Проверить работоспособность RabbitMQ и отправку сообщений можно на `localhost:15672` (логин – `guest`, пароль – `guest`). <br/> 
+Проверить работоспособность RabbitMQ и отправку сообщений можно на `localhost:15672` (логин – `guest`, пароль – `guest`).
 Асинхронное сообщение отправляется через RabbitMQ при создании нового объекта Platform в `PlatformService`.
 
 <hr />
