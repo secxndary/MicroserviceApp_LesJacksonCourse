@@ -41,7 +41,6 @@ kubectl apply -f commands-depl.yaml
 kubectl apply -f platforms-nodeport-srv.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.0/deploy/static/provider/aws/deploy.yaml
 kubectl apply -f ingress-srv.yaml
-kubectl apply -f local-pvc.yaml
 ```
 Найти команду `kubectl apply` с актуальной версией Ingress Nginx можно здесь:
 https://kubernetes.github.io/ingress-nginx/deploy/#network-load-balancer-nlb
