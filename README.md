@@ -47,11 +47,11 @@ kubectl apply -f local-pvc.yaml
 https://kubernetes.github.io/ingress-nginx/deploy/#network-load-balancer-nlb
 
 
-#### 3.1. (Опционально) Проверка внешней связи с PlatformService через NodePort:
+#### 3.1. (Опционально) Проверка внешней связи с `PlatformService` через NodePort:
 ```
 kubectl get services
 ```
-В списке сервисов, в сервисе `platformnpservice-srv` в разделе PORT(S) скопировать сгенерированный порт формата 3хххх.
+В списке сервисов, в сервисе `platformnpservice-srv` в разделе PORT(S) скопировать сгенерированный порт формата 3хххх. <br />
 Запрос отправить на `http://localhost:{platformnpservice-srv_PORT}`
 
 
@@ -63,11 +63,25 @@ kubectl apply -f mssql-plat-depl.yaml
 ```
 
 
-### 5. Добавить RabbitMQ (с ClusterIP и LoadBalancer):
+### 5. Добавить миграции в `PlatformService`:
+###### Это обходной способ для создания файла миграции локально (без использования Production базы данных).
+1. Поменять окружение на `Production` (в командной строке от имени администратора):
+```
+setx /M ASPNETCORE_ENVIRONMENT "Production"
+```
+2. Создать миграцию командой:
+```
+dotnet ef migrations add InitialMigration 
+```
+3. Запустить проект `PlatformService` локально.
+
+
+### 6. Добавить RabbitMQ (с ClusterIP и LoadBalancer):
 ```
 kubectl apply -f rabbitmq-depl.yaml
 ```
-
+Проверить работоспособность RabbitMQ и отправку сообщений можно на `localhost:15672` (логин – `guest`, пароль – `guest`). <br/> 
+Асинхронное сообщение отправляется через RabbitMQ при создании нового объекта Platform в `PlatformService`.
 
 <hr />
 
