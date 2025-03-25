@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using PlatformService.AsyncDataServices;
 using PlatformService.Data;
 using PlatformService.SyncDataServices.Http;
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IPlatformRepository, PlatformRepository>();
 builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
+builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
 
 if (builder.Environment.IsProduction())
 {
@@ -16,14 +18,13 @@ if (builder.Environment.IsProduction())
 }
 else
 {
-    Console.WriteLine($"--> Using InMem Db");
+    Console.WriteLine("--> Using InMem Db");
     builder.Services.AddDbContext<AppDbContext>(opts => 
         opts.UseInMemoryDatabase("InMem"));
 }
 
 builder.Services.AddControllers();
 
-// TODO maybe change to Assembly.GetExecutingAssembly() ?
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddEndpointsApiExplorer();
