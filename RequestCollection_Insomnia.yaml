@@ -24,7 +24,7 @@ collection:
             meta:
               id: req_84bd1725ca8d44c5a03843001c259d8c
               created: 1742480615323
-              modified: 1742573860033
+              modified: 1742881014036
               isPrivate: false
               sortKey: -1742480615323
             method: GET
@@ -64,7 +64,7 @@ collection:
             meta:
               id: req_8ec3017b36e7485da7ec2579cb813e86
               created: 1742481034786
-              modified: 1742579925085
+              modified: 1742893366656
               isPrivate: false
               sortKey: -1742480615223
             method: POST
@@ -107,6 +107,95 @@ collection:
             method: POST
             body:
               mimeType: application/json
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: https://localhost:6001/api/c/platforms
+            name: Get all platforms
+            meta:
+              id: req_c1741a9925ff43a6b7c87e92f01a162a
+              created: 1742791556752
+              modified: 1742791575033
+              isPrivate: false
+              sortKey: -1742791556752
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: https://localhost:6001/api/c/platforms/1/commands
+            name: Get all commands for platform
+            meta:
+              id: req_90ccf101dcde47c49d717171885465a8
+              created: 1742813727057
+              modified: 1742813736851
+              isPrivate: false
+              sortKey: -1742681931646.5
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: https://localhost:6001/api/c/platforms/1/commands/3
+            name: Get command for platform
+            meta:
+              id: req_9c1479390112424192d7515d989f1f86
+              created: 1742814767401
+              modified: 1742814772527
+              isPrivate: false
+              sortKey: -1742627119093.75
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: https://localhost:6001/api/c/platforms/1/commands
+            name: Create command for platform
+            meta:
+              id: req_bf3b49ef61de4444815b7248fd12bc32
+              created: 1742815593905
+              modified: 1742815662252
+              isPrivate: false
+              sortKey: -1742599712817.375
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"HowTo": "Build a .NET project",
+                	"CommandLine": "dotnet build"
+                }
             headers:
               - name: Content-Type
                 value: application/json
@@ -223,7 +312,7 @@ collection:
             meta:
               id: req_ab1e46585a744d90894d96e24f2818a3
               created: 1742562203990
-              modified: 1742648563669
+              modified: 1742650819394
               isPrivate: false
               sortKey: -1742480615323
             method: GET
@@ -243,7 +332,7 @@ collection:
             meta:
               id: req_fc08ee5c30284367acd2d181948b4922
               created: 1742562203994
-              modified: 1742648582104
+              modified: 1742707677001
               isPrivate: false
               sortKey: -1742480615223
             method: POST
