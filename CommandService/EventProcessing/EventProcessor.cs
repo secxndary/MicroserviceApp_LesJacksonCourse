@@ -27,21 +27,21 @@ public class EventProcessor : IEventProcessor
             case EventType.PlatformPublished:
                 AddPlatform(message);
                 break;
-            default:
+            case EventType.Undetermined:
                 break;
         }
     }
 
     private EventType DetermineEvent(string notificationMessage)
     {
-        Console.WriteLine("--> Determining Event");
+        Console.WriteLine("--> Determining Event...");
 
         var eventType = JsonSerializer.Deserialize<GenericEventDto>(notificationMessage);
 
         switch (eventType.Event)
         {
             case "Platform_Published":
-                Console.WriteLine("--> Platform_Published Event Event Detected");
+                Console.WriteLine("--> Platform_Published Event detected");
                 return EventType.PlatformPublished;
             default:
                 Console.WriteLine($"--> Could not determine event type. Message: {notificationMessage}");
@@ -68,6 +68,8 @@ public class EventProcessor : IEventProcessor
             {
                 repository.CreatePlatform(platformModel);
                 repository.SaveChanges();
+
+                Console.WriteLine("--> Platform added!");
             }
         }
         catch (Exception ex)
