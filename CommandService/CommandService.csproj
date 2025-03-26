@@ -8,6 +8,12 @@
 
     <ItemGroup>
         <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+        <PackageReference Include="Google.Protobuf" Version="3.17.3" />
+        <PackageReference Include="Grpc.Net.Client" Version="2.38.0"/>
+        <PackageReference Include="Grpc.Tools" Version="2.39.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.36" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.36">
             <PrivateAssets>all</PrivateAssets>
@@ -19,10 +25,14 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-        <DependentUpon>Dockerfile</DependentUpon>
-      </Content>
+        <Content Include="..\.dockerignore">
+            <Link>.dockerignore</Link>
+            <DependentUpon>Dockerfile</DependentUpon>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="Protos\platforms.proto" GrpcServices="Client" />
     </ItemGroup>
 
 </Project>

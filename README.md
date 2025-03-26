@@ -82,6 +82,20 @@ kubectl apply -f rabbitmq-depl.yaml
 Проверить работоспособность RabbitMQ и отправку сообщений можно на `localhost:15672` (логин – `guest`, пароль – `guest`).
 Асинхронное сообщение отправляется через RabbitMQ при создании нового объекта Platform в `PlatformService`.
 
+
+### 7. Добавить gRPC:
+gRPC конфигурируется в проекте `PlatformService` в следующих файлах:
+- `platforms-depl.yaml` – в ClusterIP добавляется порт gRPC, равный 666 (можно выбрать любой другой);
+- `PlatformService.csproj` и `CommandService.csproj` – в ItemGroup прописывается путь к папке с proto-файлами;
+- `Protos/platforms.proto` – сам proto-файл; 
+- `PlatformService/appsettings.Production.json` – указываются URL и протоколы для gRPC (порт 666, протокол HTTP/2) и Web API (порт 80, протокол HTTP/1);
+- `CommandService/appsettings.Production.json` – указываются URL и порт (666) к gRPC Platform в Production Environment. <br />
+#### Для генерации кода классов на основании proto-файлов необходимо собрать проект `PlatformService`:
+```
+cd PlatformService
+dotnet build 
+```
+
 <hr />
 
 ### Обновление docker image и k8s deployment (например, PlatformService):
@@ -90,4 +104,10 @@ cd PlatformService
 docker build -t {YOUR_DOCKER_ID}/platformservice .
 docker push {YOUR_DOCKER_ID}/platformservice
 kubectl rollout restart deployment platforms-depl
+```
+
+### Если не работает HTTPS в gRPC в k8s:
+```
+dotnet dev-certs https --clean
+dotnet dev-certs https --trust
 ```

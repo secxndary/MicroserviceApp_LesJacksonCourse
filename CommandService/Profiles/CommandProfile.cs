@@ -14,5 +14,10 @@ public class CommandProfile : Profile
         CreateMap<PlatformPublishDto, Platform>()
             .ForMember(platform => platform.ExternalId,
                 opts => opts.MapFrom(platformPublish => platformPublish.Id));
+        CreateMap<GrpcPlatformModel, Platform>()
+            .ForMember(grpcPlatformModel => grpcPlatformModel.ExternalId,
+                opts => opts.MapFrom(platform => platform.PlatformId))
+            .ForMember(grpcPlatformModel => grpcPlatformModel.Commands,
+                opts => opts.Ignore());
     }
 }
