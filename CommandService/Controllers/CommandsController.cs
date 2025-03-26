@@ -65,10 +65,10 @@ public class CommandsController : Controller
 
         _repository.SaveChanges();
 
-        var createdCommandReadDto = _mapper.Map<PlatformReadDto>(createdCommand);
+        var createdCommandReadDto = _mapper.Map<CommandReadDto>(createdCommand);
 
         return CreatedAtRoute(nameof(GetCommandForPlatform), 
-            new { id = createdCommandReadDto.Id }, createdCommandReadDto);
+            new { platformId = platformId, commandId = createdCommandReadDto.Id }, createdCommandReadDto);
     }
 
 
