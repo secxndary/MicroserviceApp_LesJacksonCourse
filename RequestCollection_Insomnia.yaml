@@ -140,12 +140,12 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
-          - url: https://localhost:6001/api/c/platforms/1/commands
+          - url: https://localhost:6001/api/c/platforms/5/commands
             name: Get all commands for platform
             meta:
               id: req_90ccf101dcde47c49d717171885465a8
               created: 1742813727057
-              modified: 1742813736851
+              modified: 1742997160383
               isPrivate: false
               sortKey: -1742681931646.5
             method: GET
@@ -160,12 +160,12 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
-          - url: https://localhost:6001/api/c/platforms/1/commands/3
+          - url: https://localhost:6001/api/c/platforms/5/commands/1
             name: Get command for platform
             meta:
               id: req_9c1479390112424192d7515d989f1f86
               created: 1742814767401
-              modified: 1742814772527
+              modified: 1742997225876
               isPrivate: false
               sortKey: -1742627119093.75
             method: GET
@@ -180,12 +180,12 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
-          - url: https://localhost:6001/api/c/platforms/1/commands
+          - url: https://localhost:6001/api/c/platforms/5/commands
             name: Create command for platform
             meta:
               id: req_bf3b49ef61de4444815b7248fd12bc32
               created: 1742815593905
-              modified: 1742815662252
+              modified: 1742997153720
               isPrivate: false
               sortKey: -1742599712817.375
             method: POST
@@ -193,8 +193,8 @@ collection:
               mimeType: application/json
               text: |-
                 {
-                	"HowTo": "Build a .NET project",
-                	"CommandLine": "dotnet build"
+                	"HowTo": "Push a container to Docker Hub",
+                	"CommandLine": "docker push <docker_id>/<container_name>"
                 }
             headers:
               - name: Content-Type
@@ -300,120 +300,254 @@ collection:
       modified: 1742562211653
       sortKey: -1742496363680
     children:
-      - name: Platform Service (Nginx)
+      - name: Nginx
         meta:
-          id: fld_aec76126f50840e0b378e5a3f6dad740
-          created: 1742562203987
-          modified: 1742649626390
-          sortKey: -1742562190401
+          id: fld_5b2e9a70aa204117b607e7e0fe34d8e5
+          created: 1742997497053
+          modified: 1742997500005
+          sortKey: -1742562190501
         children:
-          - url: https://acme.com/api/platforms
-            name: Get all platforms
+          - name: Platform Service
             meta:
-              id: req_ab1e46585a744d90894d96e24f2818a3
-              created: 1742562203990
-              modified: 1742650819394
-              isPrivate: false
-              sortKey: -1742480615323
-            method: GET
-            headers:
-              - name: User-Agent
-                value: insomnia/11.0.0
-            settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-          - url: https://acme.com/api/platforms
-            name: Create platform
+              id: fld_e1ca5e252c9b4d70a293860a409dc3af
+              created: 1742997507602
+              modified: 1742997507602
+              sortKey: -1742997507602
+            children:
+              - url: https://acme.com/api/platforms
+                name: Get all platforms
+                meta:
+                  id: req_ab1e46585a744d90894d96e24f2818a3
+                  created: 1742562203990
+                  modified: 1742997519237
+                  isPrivate: false
+                  sortKey: -1742997518984
+                method: GET
+                headers:
+                  - name: User-Agent
+                    value: insomnia/11.0.0
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: https://acme.com/api/platforms
+                name: Create platform
+                meta:
+                  id: req_fc08ee5c30284367acd2d181948b4922
+                  created: 1742562203994
+                  modified: 1742997522534
+                  isPrivate: false
+                  sortKey: -1742997518884
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                      "name": "Docker",
+                      "publisher": "Docker, Inc.",
+                      "cost": "Free"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.0.0
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+          - name: Command Service
             meta:
-              id: req_fc08ee5c30284367acd2d181948b4922
-              created: 1742562203994
-              modified: 1742707677001
-              isPrivate: false
-              sortKey: -1742480615223
-            method: POST
-            body:
-              mimeType: application/json
-              text: |-
-                {
-                  "name": "Docker",
-                  "publisher": "Docker, Inc.",
-                  "cost": "Free"
-                }
-            headers:
-              - name: Content-Type
-                value: application/json
-              - name: User-Agent
-                value: insomnia/11.0.0
-            settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-      - name: Platform Service (NodePort)
+              id: fld_ca18cb73729e4c37a183bbf145db9a67
+              created: 1742997878048
+              modified: 1742997883374
+              sortKey: -1742997507702
+            children:
+              - url: https://acme.com/api/c/platforms
+                name: Test Inbound conn
+                meta:
+                  id: req_a8bf98ed3bdc4a88be5e168ef39a8c97
+                  created: 1742997878053
+                  modified: 1742997939121
+                  isPrivate: false
+                  sortKey: -1742572306541
+                method: POST
+                body:
+                  mimeType: application/json
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.0.0
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: https://acme.com/api/c/platforms
+                name: Get all platforms
+                meta:
+                  id: req_5a1ab50ac13b4421b1028ead34d3ee1e
+                  created: 1742997878057
+                  modified: 1742997916183
+                  isPrivate: false
+                  sortKey: -1742791556752
+                method: GET
+                headers:
+                  - name: User-Agent
+                    value: insomnia/11.0.0
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: https://acme.com/api/c/platforms/18/commands
+                name: Get all commands for platform
+                meta:
+                  id: req_518c2e528be34e248e98765abdb51b81
+                  created: 1742997878059
+                  modified: 1742997960321
+                  isPrivate: false
+                  sortKey: -1742681931646.5
+                method: GET
+                headers:
+                  - name: User-Agent
+                    value: insomnia/11.0.0
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: https://acme.com/api/c/platforms/18/commands/1
+                name: Get command for platform
+                meta:
+                  id: req_e3c3a28628404ccf956162fdba16c37a
+                  created: 1742997878064
+                  modified: 1742997964540
+                  isPrivate: false
+                  sortKey: -1742627119093.75
+                method: GET
+                headers:
+                  - name: User-Agent
+                    value: insomnia/11.0.0
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: https://acme.com/api/c/platforms/18/commands
+                name: Create command for platform
+                meta:
+                  id: req_2affb0edb57e4986a64801b27224da3c
+                  created: 1742997878067
+                  modified: 1742997955465
+                  isPrivate: false
+                  sortKey: -1742599712817.375
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                    	"HowTo": "Push a container to Docker Hub",
+                    	"CommandLine": "docker push <docker_id>/<container_name>"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.0.0
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+      - name: NodePort
         meta:
-          id: fld_50a2208d3aae49178212ba7f83dbc490
-          created: 1742642982766
-          modified: 1742649618702
-          sortKey: -1742529277040.5
+          id: fld_f76ca4ff01a04380b50904d66cb53db2
+          created: 1742997536101
+          modified: 1742997536101
+          sortKey: -1742997536101
         children:
-          - url: http://localhost:31164/api/platforms
-            name: Get all platforms
+          - name: Platform Service
             meta:
-              id: req_1a75738348284d668fcf034cc8b35b2e
-              created: 1742642982769
-              modified: 1742642982769
-              isPrivate: false
-              sortKey: -1742480615323
-            method: GET
-            headers:
-              - name: User-Agent
-                value: insomnia/11.0.0
-            settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
-          - url: http://localhost:31164/api/platforms
-            name: Create platform
-            meta:
-              id: req_f49006e8d6514da7aab1f0a39f4a350c
-              created: 1742642982772
-              modified: 1742642982772
-              isPrivate: false
-              sortKey: -1742480615223
-            method: POST
-            body:
-              mimeType: application/json
-              text: |-
-                {
-                  "name": "Docker",
-                  "publisher": "Docker, Inc.",
-                  "cost": "Free"
-                }
-            headers:
-              - name: Content-Type
-                value: application/json
-              - name: User-Agent
-                value: insomnia/11.0.0
-            settings:
-              renderRequestBody: true
-              encodeUrl: true
-              followRedirects: global
-              cookies:
-                send: true
-                store: true
-              rebuildPath: true
+              id: fld_50a2208d3aae49178212ba7f83dbc490
+              created: 1742642982766
+              modified: 1742997551811
+              sortKey: -1742997546108
+            children:
+              - url: http://localhost:31164/api/platforms
+                name: Get all platforms
+                meta:
+                  id: req_1a75738348284d668fcf034cc8b35b2e
+                  created: 1742642982769
+                  modified: 1742642982769
+                  isPrivate: false
+                  sortKey: -1742480615323
+                method: GET
+                headers:
+                  - name: User-Agent
+                    value: insomnia/11.0.0
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: http://localhost:31164/api/platforms
+                name: Create platform
+                meta:
+                  id: req_f49006e8d6514da7aab1f0a39f4a350c
+                  created: 1742642982772
+                  modified: 1742642982772
+                  isPrivate: false
+                  sortKey: -1742480615223
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                      "name": "Docker",
+                      "publisher": "Docker, Inc.",
+                      "cost": "Free"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.0.0
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
