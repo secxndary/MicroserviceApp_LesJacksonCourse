@@ -89,6 +89,26 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
+          - url: https://localhost:5001/protos/platforms.proto
+            name: Test gRPC connection
+            meta:
+              id: req_351044c72be74a4ab6c9ed7c6f82b18c
+              created: 1743001845149
+              modified: 1743009106101
+              isPrivate: false
+              sortKey: -1742480615123
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
       - name: Command Service
         meta:
           id: fld_36ea97fc2aa149c9922d99cf016f51d3
@@ -140,12 +160,12 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
-          - url: https://localhost:6001/api/c/platforms/5/commands
+          - url: https://localhost:6001/api/c/platforms/4/commands
             name: Get all commands for platform
             meta:
               id: req_90ccf101dcde47c49d717171885465a8
               created: 1742813727057
-              modified: 1742997160383
+              modified: 1743009078022
               isPrivate: false
               sortKey: -1742681931646.5
             method: GET
@@ -160,12 +180,12 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
-          - url: https://localhost:6001/api/c/platforms/5/commands/1
+          - url: https://localhost:6001/api/c/platforms/4/commands/1
             name: Get command for platform
             meta:
               id: req_9c1479390112424192d7515d989f1f86
               created: 1742814767401
-              modified: 1742997225876
+              modified: 1743009089154
               isPrivate: false
               sortKey: -1742627119093.75
             method: GET
@@ -180,12 +200,12 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
-          - url: https://localhost:6001/api/c/platforms/5/commands
+          - url: https://localhost:6001/api/c/platforms/4/commands
             name: Create command for platform
             meta:
               id: req_bf3b49ef61de4444815b7248fd12bc32
               created: 1742815593905
-              modified: 1742997153720
+              modified: 1743009083418
               isPrivate: false
               sortKey: -1742599712817.375
             method: POST
@@ -372,11 +392,11 @@ collection:
               sortKey: -1742997507702
             children:
               - url: https://acme.com/api/c/platforms
-                name: Test Inbound conn
+                name: Test Inbound connection
                 meta:
                   id: req_a8bf98ed3bdc4a88be5e168ef39a8c97
                   created: 1742997878053
-                  modified: 1742997939121
+                  modified: 1743009144483
                   isPrivate: false
                   sortKey: -1742572306541
                 method: POST
@@ -400,7 +420,7 @@ collection:
                 meta:
                   id: req_5a1ab50ac13b4421b1028ead34d3ee1e
                   created: 1742997878057
-                  modified: 1742997916183
+                  modified: 1742998780662
                   isPrivate: false
                   sortKey: -1742791556752
                 method: GET
@@ -415,12 +435,12 @@ collection:
                     send: true
                     store: true
                   rebuildPath: true
-              - url: https://acme.com/api/c/platforms/18/commands
+              - url: https://acme.com/api/c/platforms/4/commands
                 name: Get all commands for platform
                 meta:
                   id: req_518c2e528be34e248e98765abdb51b81
                   created: 1742997878059
-                  modified: 1742997960321
+                  modified: 1743009053777
                   isPrivate: false
                   sortKey: -1742681931646.5
                 method: GET
@@ -435,12 +455,12 @@ collection:
                     send: true
                     store: true
                   rebuildPath: true
-              - url: https://acme.com/api/c/platforms/18/commands/1
+              - url: https://acme.com/api/c/platforms/4/commands/1
                 name: Get command for platform
                 meta:
                   id: req_e3c3a28628404ccf956162fdba16c37a
                   created: 1742997878064
-                  modified: 1742997964540
+                  modified: 1743009056684
                   isPrivate: false
                   sortKey: -1742627119093.75
                 method: GET
@@ -455,12 +475,12 @@ collection:
                     send: true
                     store: true
                   rebuildPath: true
-              - url: https://acme.com/api/c/platforms/18/commands
+              - url: https://acme.com/api/c/platforms/4/commands
                 name: Create command for platform
                 meta:
                   id: req_2affb0edb57e4986a64801b27224da3c
                   created: 1742997878067
-                  modified: 1742997955465
+                  modified: 1743009060196
                   isPrivate: false
                   sortKey: -1742599712817.375
                 method: POST
