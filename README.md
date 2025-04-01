@@ -4,7 +4,7 @@
 - .NET 6
 - dotnet ef (Command-line Tools 9.0.3)
 - Docker Desktop (4.38.0)
-- Kubernetes (Kubeadm 1.31.4)
+- Kubernetes (Kubernetes 1.31.4, Kubeadm 1.31.4)
 - (Опционально) Средство визуального просмотра БД в Docker (DBeaver, SSMS, etc.)
 
 
@@ -96,6 +96,8 @@ cd PlatformService
 dotnet build 
 ```
 
+
+
 <hr />
 
 ### Обновление docker image и k8s deployment (например, PlatformService):
@@ -105,6 +107,7 @@ docker build -t {YOUR_DOCKER_ID}/platformservice .
 docker push {YOUR_DOCKER_ID}/platformservice
 kubectl rollout restart deployment platforms-depl
 ```
+
 
 ### Если не работает HTTPS в gRPC в k8s:
 ```
