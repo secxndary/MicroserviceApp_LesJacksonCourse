@@ -38,7 +38,7 @@ docker run -p 8080:80 {YOUR_DOCKER_ID}/commandservice
 cd k8s
 kubectl apply -f platforms-depl.yaml
 kubectl apply -f commands-depl.yaml
-kubectl apply -f platforms-nodeport-srv.yaml
+kubectl apply -f platforms-np-srv.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.0/deploy/static/provider/aws/deploy.yaml
 kubectl apply -f ingress-srv.yaml
 ```
