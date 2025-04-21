@@ -31,3 +31,10 @@ spec:
                 name: auth-clusterip-srv
                 port:
                   number: 80
+          - path: /api/tokens
+            pathType: Prefix
+            backend:
+              service:
+                name: auth-clusterip-srv
+                port:
+                  number: 80
