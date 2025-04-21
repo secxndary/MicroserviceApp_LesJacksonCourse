@@ -33,7 +33,6 @@ public static class PrepDb
             }
 
             repository.SaveChanges();
-
         }
 
         Console.WriteLine($"--> Got {platformsList.Count} platforms from PlatformService, added {addedPlatformsCount} platforms to CommandService");
