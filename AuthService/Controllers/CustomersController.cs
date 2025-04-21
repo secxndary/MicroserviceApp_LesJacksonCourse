@@ -1,0 +1,19 @@
+using AuthService.Shared;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace AuthService.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class CustomersController : ControllerBase
+{
+    private readonly List<string> _customers = new() { "John Doe", "Jane Doe" };
+
+    [HttpGet]
+    [Authorize(Roles = Constants.ManagerRole)]
+    public IActionResult GetCustomers()
+    {
+        return Ok(_customers);
+    }
+}
