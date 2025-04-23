@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AuthService.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/a/[controller]")]
 [ApiController]
 public class CustomersController : ControllerBase
 {
