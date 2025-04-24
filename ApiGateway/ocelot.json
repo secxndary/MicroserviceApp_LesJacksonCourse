@@ -1,0 +1,24 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/a/{everything}",
+      "DownstreamPathTemplate": "/api/a/{everything}",
+      "DownstreamHostAndPorts": [{ "Host": "auth-clusterip-srv", "Port": 80 }]
+    },
+    {
+      "UpstreamPathTemplate": "/api/c/{everything}",
+      "DownstreamPathTemplate": "/api/c/{everything}",
+      "DownstreamHostAndPorts": [{ "Host": "commands-clusterip-srv", "Port": 80 }]
+    },
+    {
+      "UpstreamPathTemplate": "/api/platforms/{everything}",
+      "DownstreamPathTemplate": "/api/platforms/{everything}",
+      "DownstreamHostAndPorts": [{ "Host": "platforms-clusterip-srv", "Port": 80 }]
+    },
+    {
+      "UpstreamPathTemplate": "/api/platforms",
+      "DownstreamPathTemplate": "/api/platforms",
+      "DownstreamHostAndPorts": [{ "Host": "platforms-clusterip-srv", "Port": 80 }]
+    }
+  ]
+}
