@@ -1,9 +1,9 @@
 using AuthService.Data;
 using AuthService.Models;
 using AuthService.Services;
-using AuthService.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Shared;
 
 namespace AuthService.Controllers;
 
@@ -27,7 +27,7 @@ public class TokensController : ControllerBase
     {
         if (tokenApiModel is null)
         {
-            return BadRequest(Constants.BadRequestErrorMessage);
+            return BadRequest(GlobalConstants.BadRequestErrorMessage);
         }
 
         var accessToken = tokenApiModel.AccessToken;
@@ -40,7 +40,7 @@ public class TokensController : ControllerBase
 
         if (user is null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
         {
-            return BadRequest(Constants.BadRequestErrorMessage);
+            return BadRequest(GlobalConstants.BadRequestErrorMessage);
         }
 
         var newAccessToken = _tokenService.GenerateAccessToken(principal.Claims);
@@ -68,7 +68,7 @@ public class TokensController : ControllerBase
 
         if (user is null)
         {
-            return BadRequest(Constants.BadRequestErrorMessage);
+            return BadRequest(GlobalConstants.BadRequestErrorMessage);
         }
 
         user.RefreshToken = null;

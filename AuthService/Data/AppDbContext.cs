@@ -1,5 +1,4 @@
 using AuthService.Models;
-using AuthService.Shared;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuthService.Data;

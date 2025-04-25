@@ -2,8 +2,8 @@ using System.Security.Claims;
 using AuthService.Data;
 using AuthService.Models;
 using AuthService.Services;
-using AuthService.Shared;
 using Microsoft.AspNetCore.Mvc;
+using Shared;
 
 namespace AuthService.Controllers;
 
@@ -26,7 +26,7 @@ public class AuthController : ControllerBase
     {
         if (loginModel is null)
         {
-            return BadRequest(Constants.BadRequestErrorMessage);
+            return BadRequest(GlobalConstants.BadRequestErrorMessage);
         }
 
         var user = _dbContext.LoginModels.FirstOrDefault(u =>
@@ -34,13 +34,13 @@ public class AuthController : ControllerBase
 
         if (user is null)
         {
-            return Unauthorized(Constants.UnauthorizedErrorMessage);
+            return Unauthorized(GlobalConstants.UnauthorizedErrorMessage);
         }
 
         var claims = new List<Claim>
         {
             new(ClaimTypes.Name, user.UserName),
-            new(ClaimTypes.Role, Constants.ManagerRole)
+            new(ClaimTypes.Role, GlobalConstants.ManagerRole)
         };
 
         var accessToken = _tokenService.GenerateAccessToken(claims);

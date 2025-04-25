@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService", "AuthService\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{C9FBDD48-25A8-49B6-8B73-C5BD11145909}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{99FD4575-22D8-46A1-91D0-DC9C3392B3E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{C9FBDD48-25A8-49B6-8B73-C5BD11145909}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9FBDD48-25A8-49B6-8B73-C5BD11145909}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9FBDD48-25A8-49B6-8B73-C5BD11145909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99FD4575-22D8-46A1-91D0-DC9C3392B3E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99FD4575-22D8-46A1-91D0-DC9C3392B3E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99FD4575-22D8-46A1-91D0-DC9C3392B3E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99FD4575-22D8-46A1-91D0-DC9C3392B3E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
