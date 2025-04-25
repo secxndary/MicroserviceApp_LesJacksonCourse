@@ -10,6 +10,7 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
         <PackageReference Include="Ocelot" Version="18.0.0" />
         <PackageReference Include="Ocelot.Cache.CacheManager" Version="18.0.0" />
+        <PackageReference Include="Secxndary.Shared" Version="1.0.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -18,9 +19,4 @@
         <DependentUpon>Dockerfile</DependentUpon>
       </Content>
     </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Shared\Shared.csproj" />
-    </ItemGroup>
-
 </Project>

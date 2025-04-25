@@ -19,7 +19,7 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 if (builder.Environment.IsProduction())
 {
-    var connectionString = builder.Configuration.GetConnectionString(GlobalConstants.ConnectionStringName);
+    var connectionString = builder.Configuration.GetConnectionString(GlobalConstants.AuthServiceConnectionStringName);
     Console.WriteLine($"--> Using SQL Server Db\n--> Connection string: {connectionString}");
     builder.Services.AddDbContext<AppDbContext>(opts =>
         opts.UseSqlServer(connectionString));

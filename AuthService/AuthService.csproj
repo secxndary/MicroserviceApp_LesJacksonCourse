@@ -17,6 +17,7 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.36" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.36" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
+        <PackageReference Include="Secxndary.Shared" Version="1.0.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -24,13 +25,4 @@
         <Link>.dockerignore</Link>
       </Content>
     </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Shared\Shared.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Shared\" />
-    </ItemGroup>
-
 </Project>

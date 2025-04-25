@@ -3,6 +3,7 @@ using PlatformService.AsyncDataServices;
 using PlatformService.Data;
 using PlatformService.SyncDataServices.Grpc;
 using PlatformService.SyncDataServices.Http;
+using Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +14,7 @@ builder.Services.AddGrpc();
 
 if (builder.Environment.IsProduction())
 {
-    var connectionString = builder.Configuration.GetConnectionString("PlatformsConnection");
+    var connectionString = builder.Configuration.GetConnectionString(GlobalConstants.PlatformServiceConnectionStringName);
     Console.WriteLine($"--> Using SQL Server Db\n--> Connection string: {connectionString}");
     builder.Services.AddDbContext<AppDbContext>(opts =>
         opts.UseSqlServer(connectionString));
@@ -22,7 +23,7 @@ else
 {
     Console.WriteLine("--> Using InMem Db");
     builder.Services.AddDbContext<AppDbContext>(opts => 
-        opts.UseInMemoryDatabase("InMem"));
+        opts.UseInMemoryDatabase(GlobalConstants.InMemoryDatabaseName));
 }
 
 builder.Services.AddControllers();

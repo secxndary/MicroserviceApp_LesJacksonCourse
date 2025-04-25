@@ -1,14 +1,14 @@
 using CommandService.AsyncDataServices;
 using CommandService.Data;
 using CommandService.EventProcessing;
-using CommandService.Models;
 using CommandService.SyncDataServices.Grpc;
 using Microsoft.EntityFrameworkCore;
+using Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(opts => 
-    opts.UseInMemoryDatabase("InMem"));
+    opts.UseInMemoryDatabase(GlobalConstants.InMemoryDatabaseName));
 
 builder.Services.AddScoped<ICommandRepository, CommandRepository>();
 
