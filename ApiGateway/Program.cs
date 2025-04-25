@@ -1,12 +1,19 @@
 using Ocelot.Cache.CacheManager;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Shared;
 
 var builder = WebApplication.CreateBuilder(args);
+var isProd = builder.Environment.IsProduction(); 
 
-builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
-builder.Services.AddOcelot(builder.Configuration)
-    .AddCacheManager(x => x.WithDictionaryHandle());
+builder.Services.ConfigureJwtAuthentication();
+
+if (isProd)
+{
+    builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+    builder.Services.AddOcelot(builder.Configuration)
+        .AddCacheManager(x => x.WithDictionaryHandle());
+}
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -18,11 +25,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
-app.MapGet("/health", async context =>
-{
-    await context.Response.WriteAsync("Api Gateway is working correctly");
-});
+app.MapGet("/health", () => "Api Gateway is working correctly");
 
-await app.UseOcelot();
+if (isProd) await app.UseOcelot();
 
 app.Run();
