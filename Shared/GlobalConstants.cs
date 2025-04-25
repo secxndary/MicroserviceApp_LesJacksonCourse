@@ -22,6 +22,7 @@ public static class GlobalConstants
     public const string CorsPolicy = "EnableCORS";
     public const string ManagerRole = "Manager";
 
-    public const string ConnectionStringName = "AuthServiceConnection";
+    public const string AuthServiceConnectionStringName = "AuthServiceConnection";
+    public const string PlatformServiceConnectionStringName = "PlatformServiceConnection";
     public const string InMemoryDatabaseName = "InMem";
 }
