@@ -229,6 +229,94 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
+      - name: Auth Service
+        meta:
+          id: fld_15ebdc1f89fb4d498d1378dd2c254ea2
+          created: 1745210171397
+          modified: 1745210171397
+          sortKey: -1745210171398
+        children:
+          - url: https://localhost:7001/api/auth/login
+            name: Sign In
+            meta:
+              id: req_09239012c9c24b2588480b6a4273e400
+              created: 1745210175574
+              modified: 1745233476365
+              isPrivate: false
+              sortKey: -1745210235655
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"username": "johndoe",
+                	"password": "def@123"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: https://localhost:7001/api/tokens/refresh
+            name: Refresh tokens
+            meta:
+              id: req_5f62221f73964bb4ae0b6d79ec7e991e
+              created: 1745210235555
+              modified: 1745235455691
+              isPrivate: false
+              sortKey: -1745210235555
+            method: POST
+            body:
+              mimeType: application/json
+              text: >-
+                {
+                	"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiam9obmRvZSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Ik1hbmFnZXIiLCJleHAiOjE3NDUyMzU3NDIsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxIn0.s5AbwMSmrfMcQw72nwYh1VX91RS98L0nddUEgZZLLL0",
+                	"refreshToken": "hwbDwIoVAdB4cm6G+rq/6v3c4Xc57Fz1dj+SvIAFqp8="
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: https://localhost:7001/api/customers
+            name: Customers
+            meta:
+              id: req_f97c8f0cd76540db8fd71c48494d1747
+              created: 1745241037822
+              modified: 1745241055466
+              isPrivate: false
+              sortKey: -1745210235455
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiam9obmRvZSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Ik1hbmFnZXIiLCJleHAiOjE3NDUyNDEzMTksImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxIn0.vGkz6kugOzuyybC7kjl3rNzfL-Dyz6GwMm8ksq5M-XM
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
   - name: Docker Environment
     meta:
       id: fld_cfe1d53dc15b49e094da7871cfd6bc6c
@@ -331,15 +419,15 @@ collection:
             meta:
               id: fld_e1ca5e252c9b4d70a293860a409dc3af
               created: 1742997507602
-              modified: 1742997507602
-              sortKey: -1742997507602
+              modified: 1745560643197
+              sortKey: -1742997507752
             children:
               - url: https://acme.com/api/platforms
                 name: Get all platforms
                 meta:
                   id: req_ab1e46585a744d90894d96e24f2818a3
                   created: 1742562203990
-                  modified: 1742997519237
+                  modified: 1743526937917
                   isPrivate: false
                   sortKey: -1742997518984
                 method: GET
@@ -420,7 +508,7 @@ collection:
                 meta:
                   id: req_5a1ab50ac13b4421b1028ead34d3ee1e
                   created: 1742997878057
-                  modified: 1742998780662
+                  modified: 1745085556213
                   isPrivate: false
                   sortKey: -1742791556752
                 method: GET
@@ -475,12 +563,12 @@ collection:
                     send: true
                     store: true
                   rebuildPath: true
-              - url: https://acme.com/api/c/platforms/4/commands
+              - url: https://acme.com/api/c/platforms/34/commands
                 name: Create command for platform
                 meta:
                   id: req_2affb0edb57e4986a64801b27224da3c
                   created: 1742997878067
-                  modified: 1743009060196
+                  modified: 1745557784554
                   isPrivate: false
                   sortKey: -1742599712817.375
                 method: POST
@@ -504,6 +592,71 @@ collection:
                     send: true
                     store: true
                   rebuildPath: true
+          - name: Auth Service
+            meta:
+              id: fld_a87c4d11180944118173585ed48ed95b
+              created: 1745234271856
+              modified: 1745234277405
+              sortKey: -1742997507802
+            children:
+              - url: https://acme.com/api/auth/login
+                name: Sign In
+                meta:
+                  id: req_f3cab8f31f6047988161b208f67e4774
+                  created: 1745234271866
+                  modified: 1745235779693
+                  isPrivate: false
+                  sortKey: -1745233112910
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                    	"username": "user",
+                    	"password": "qweqwe"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.0.2
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: https://acme.com/api/tokens/refresh
+                name: Refresh tokens
+                meta:
+                  id: req_095a258ed4ca4de0b08823f9901c30d9
+                  created: 1745246125296
+                  modified: 1745246353790
+                  isPrivate: false
+                  sortKey: -1745221674282.5
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: >-
+                    {
+                    	"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlciIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Ik1hbmFnZXIiLCJleHAiOjE3NDUyNDY2NDUsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxIn0.CdZWT06OEN3VU1nMIGQQvypWPgqWwvElNiPfU3NS13E",
+                    	"refreshToken": "OhfZMwU1rA+0MpaTDD2Ip2wlt5ATFuJppARixF0fR4o="
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.0.2
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
       - name: NodePort
         meta:
           id: fld_f76ca4ff01a04380b50904d66cb53db2
@@ -518,12 +671,12 @@ collection:
               modified: 1742997551811
               sortKey: -1742997546108
             children:
-              - url: http://localhost:31164/api/platforms
+              - url: http://localhost:32639/api/platforms
                 name: Get all platforms
                 meta:
                   id: req_1a75738348284d668fcf034cc8b35b2e
                   created: 1742642982769
-                  modified: 1742642982769
+                  modified: 1745560504534
                   isPrivate: false
                   sortKey: -1742480615323
                 method: GET
@@ -538,12 +691,12 @@ collection:
                     send: true
                     store: true
                   rebuildPath: true
-              - url: http://localhost:31164/api/platforms
+              - url: http://localhost:32639/api/platforms
                 name: Create platform
                 meta:
                   id: req_f49006e8d6514da7aab1f0a39f4a350c
                   created: 1742642982772
-                  modified: 1742642982772
+                  modified: 1745560506891
                   isPrivate: false
                   sortKey: -1742480615223
                 method: POST
@@ -560,6 +713,191 @@ collection:
                     value: application/json
                   - name: User-Agent
                     value: insomnia/11.0.0
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+          - name: Auth Service
+            meta:
+              id: fld_fb5d342ddcff49c8a386891521d67c04
+              created: 1745233109316
+              modified: 1745233109316
+              sortKey: -1745233109316
+            children:
+              - url: http://localhost:30267/api/auth/login
+                name: Sign In
+                meta:
+                  id: req_1cb288af46524396969f2c51cd051778
+                  created: 1745233112909
+                  modified: 1745560487882
+                  isPrivate: false
+                  sortKey: -1745233112910
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                    	"username": "user",
+                    	"password": "qweqwe"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.0.2
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: http://localhost:30267/api/tokens/refresh
+                name: Refresh tokens
+                meta:
+                  id: req_b6ae4f4785294c6ab96c06ecfe2ab296
+                  created: 1745246407476
+                  modified: 1745560493221
+                  isPrivate: false
+                  sortKey: -1745227393596.25
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: >-
+                    {
+                    	"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlciIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6Ik1hbmFnZXIiLCJleHAiOjE3NDUyNDY3NjAsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjUwMDEiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxIn0.IurfzNGzZEeNFF7_ipKTR3mNSF1lJF1fe5fxum4FYFY",
+                    	"refreshToken": "j6DmdeLNoezHm2IhqOItsW7nRGLCkgd1qYbOU8O0Glo="
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.0.2
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+      - name: Api Gateway
+        meta:
+          id: fld_a2e15b68fafb402180570104c08517da
+          created: 1745557657732
+          modified: 1745557657732
+          sortKey: -1745557657732
+        children:
+          - name: Platform Service
+            meta:
+              id: fld_725098ecadfa46e3bf5a637197c0afc0
+              created: 1745560530939
+              modified: 1745560530939
+              sortKey: -1745560530939
+            children:
+              - url: http://localhost:31130/api/platforms
+                name: Get all platforms
+                meta:
+                  id: req_47c03b984d414ced8675129c411cc73b
+                  created: 1745508577527
+                  modified: 1745560538939
+                  isPrivate: false
+                  sortKey: -1745560538614
+                method: GET
+                headers:
+                  - name: User-Agent
+                    value: insomnia/11.0.2
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: http://localhost:31130/api/platforms
+                name: Create platform
+                meta:
+                  id: req_a2256ff2a2bc4f44b02b181a62faa466
+                  created: 1745560636290
+                  modified: 1745560656451
+                  isPrivate: false
+                  sortKey: -1745560538564
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                      "name": "Docker",
+                      "publisher": "Docker, Inc.",
+                      "cost": "Free"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.0.2
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+          - name: Command Service
+            meta:
+              id: fld_34813dfde1f94ef59020a94e2832e756
+              created: 1745560569615
+              modified: 1745560569615
+              sortKey: -1745559094335.5
+            children:
+              - url: http://localhost:31130/api/c/platforms/34/commands
+                name: Get all commands for platform
+                meta:
+                  id: req_6605cfd9b4464a49be31a2ab7f8f3ab9
+                  created: 1745560569619
+                  modified: 1745560569619
+                  isPrivate: false
+                  sortKey: -1745560538514
+                method: GET
+                headers:
+                  - name: User-Agent
+                    value: insomnia/11.0.2
+                settings:
+                  renderRequestBody: true
+                  encodeUrl: true
+                  followRedirects: global
+                  cookies:
+                    send: true
+                    store: true
+                  rebuildPath: true
+              - url: http://localhost:31130/api/c/platforms/34/commands
+                name: Create command for platform
+                meta:
+                  id: req_c34319a930bb4dd1a3f34502afdc60dd
+                  created: 1745560604552
+                  modified: 1745560618124
+                  isPrivate: false
+                  sortKey: -1745396825712
+                method: POST
+                body:
+                  mimeType: application/json
+                  text: |-
+                    {
+                    	"HowTo": "Push a container to Docker Hub",
+                    	"CommandLine": "docker push <docker_id>/<container_name>"
+                    }
+                headers:
+                  - name: Content-Type
+                    value: application/json
+                  - name: User-Agent
+                    value: insomnia/11.0.2
                 settings:
                   renderRequestBody: true
                   encodeUrl: true
