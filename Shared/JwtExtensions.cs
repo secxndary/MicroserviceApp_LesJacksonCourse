@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Shared;
+// ReSharper disable once CheckNamespace
+namespace Secxndary.MicroserviceApp.Shared;
 
 public static class JwtExtensions
 {

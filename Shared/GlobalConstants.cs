@@ -1,4 +1,5 @@
-﻿namespace Shared;
+﻿// ReSharper disable once CheckNamespace
+namespace Secxndary.MicroserviceApp.Shared;
 
 public static class GlobalConstants
 {
@@ -6,14 +7,6 @@ public static class GlobalConstants
 
     public const string ValidIssuer = "https://localhost:5002";
     public const string ValidAudience = "https://localhost:5002";
-
-    public const string UserRoleName = "User";
-    public const string DefaultUserLogin = "user";
-    public const string DefaultUserPassword = "qweqwe";
-
-    public const string AdminRoleName = "Administrator";
-    public const string DefaultAdminLogin = "admin";
-    public const string DefaultAdminPassword = "root";
 
     public const string BadRequestErrorMessage = "Invalid client request";
     public const string UnauthorizedErrorMessage = "Incorrect username or password";
@@ -25,4 +18,6 @@ public static class GlobalConstants
     public const string AuthServiceConnectionStringName = "AuthServiceConnection";
     public const string PlatformServiceConnectionStringName = "PlatformServiceConnection";
     public const string InMemoryDatabaseName = "InMem";
+
+    public const string PlatformPublishedEventName = "Platform_Published";
 }

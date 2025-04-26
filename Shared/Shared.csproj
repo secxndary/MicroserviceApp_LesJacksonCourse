@@ -4,13 +4,15 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <PackageId>Secxndary.Shared</PackageId>
+        <PackageId>Secxndary.MicroserviceApp.Shared</PackageId>
+        <RootNamespace>Secxndary.MicroserviceApp.Shared</RootNamespace>
+        <AssemblyName>Secxndary.MicroserviceApp.Shared</AssemblyName>
         <Authors>Alexander Valdaitsev</Authors>
         <Company>Secxndary Inc.</Company>
-        <Version>1.0.0</Version>
+        <Version>1.0.4</Version>
         <Description>Shared library for authentication and constants</Description>
-        <PackageTags>authentication jwt shared comon constants</PackageTags>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageTags>authentication jwt shared common constants</PackageTags>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
