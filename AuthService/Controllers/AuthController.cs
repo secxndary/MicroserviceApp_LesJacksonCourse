@@ -3,7 +3,7 @@ using AuthService.Data;
 using AuthService.Models;
 using AuthService.Services;
 using Microsoft.AspNetCore.Mvc;
-using Shared;
+using Secxndary.MicroserviceApp.Shared;
 
 namespace AuthService.Controllers;
 

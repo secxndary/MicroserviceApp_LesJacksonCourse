@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Shared;
+using Secxndary.MicroserviceApp.Shared;
 
 namespace AuthService.Controllers;
 

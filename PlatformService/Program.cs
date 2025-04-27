@@ -3,7 +3,7 @@ using PlatformService.AsyncDataServices;
 using PlatformService.Data;
 using PlatformService.SyncDataServices.Grpc;
 using PlatformService.SyncDataServices.Http;
-using Shared;
+using Secxndary.MicroserviceApp.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 

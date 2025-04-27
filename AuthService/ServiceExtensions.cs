@@ -1,4 +1,4 @@
-using Shared;
+using Secxndary.MicroserviceApp.Shared;
 
 namespace AuthService;
 

@@ -3,7 +3,7 @@ using CommandService.Data;
 using CommandService.EventProcessing;
 using CommandService.SyncDataServices.Grpc;
 using Microsoft.EntityFrameworkCore;
-using Shared;
+using Secxndary.MicroserviceApp.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 

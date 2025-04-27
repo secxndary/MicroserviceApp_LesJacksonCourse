@@ -2,7 +2,7 @@ using AuthService;
 using AuthService.Data;
 using AuthService.Services;
 using Microsoft.EntityFrameworkCore;
-using Shared;
+using Secxndary.MicroserviceApp.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
