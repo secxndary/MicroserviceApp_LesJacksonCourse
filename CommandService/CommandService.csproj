@@ -22,7 +22,7 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.36" />
         <PackageReference Include="RabbitMQ.Client" Version="6.2.2" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
-        <PackageReference Include="Secxndary.Shared" Version="1.0.0" />
+        <PackageReference Include="Secxndary.MicroserviceApp.Shared" Version="1.0.4" />
     </ItemGroup>
 
     <ItemGroup>
