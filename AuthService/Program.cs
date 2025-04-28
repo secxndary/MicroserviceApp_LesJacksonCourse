@@ -1,7 +1,6 @@
-using AuthService;
 using AuthService.Data;
+using AuthService.Extensions;
 using AuthService.Services;
-using Microsoft.EntityFrameworkCore;
 using Secxndary.MicroserviceApp.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,16 +18,11 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 if (builder.Environment.IsProduction())
 {
-    var connectionString = builder.Configuration.GetConnectionString(GlobalConstants.AuthServiceConnectionStringName);
-    Console.WriteLine($"--> Using SQL Server Db\n--> Connection string: {connectionString}");
-    builder.Services.AddDbContext<AppDbContext>(opts =>
-        opts.UseSqlServer(connectionString));
+    builder.Services.ConfigureSqlServerDatabase(builder.Configuration);
 }
 else
 {
-    Console.WriteLine("--> Using InMemory Db");
-    builder.Services.AddDbContext<AppDbContext>(opts =>
-        opts.UseInMemoryDatabase(GlobalConstants.InMemoryDatabaseName));
+    builder.Services.ConfigureInMemoryDatabase(builder.Configuration);
 }
 
 var app = builder.Build();

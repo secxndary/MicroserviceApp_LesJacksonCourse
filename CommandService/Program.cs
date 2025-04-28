@@ -1,22 +1,24 @@
-using CommandService.AsyncDataServices;
 using CommandService.Data;
-using CommandService.EventProcessing;
-using CommandService.SyncDataServices.Grpc;
-using Microsoft.EntityFrameworkCore;
+using CommandService.Extensions;
 using Secxndary.MicroserviceApp.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<AppDbContext>(opts => 
-    opts.UseInMemoryDatabase(GlobalConstants.InMemoryDatabaseName));
+builder.Services.ConfigureRepository();
 
-builder.Services.AddScoped<ICommandRepository, CommandRepository>();
+if (builder.Environment.IsProduction())
+{
+    builder.Services.ConfigureSqlServerDatabase(builder.Configuration);
+}
+else
+{
+    builder.Services.ConfigureInMemoryDatabase(builder.Configuration);
+}
 
 builder.Services.AddControllers();
 
-builder.Services.AddHostedService<MessageBusSubscriber>();
-builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
-builder.Services.AddScoped<IPlatformDataClient, PlatformDataClient>();
+builder.Services.ConfigureSyncMessaging();
+builder.Services.ConfigureAsyncMessaging();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

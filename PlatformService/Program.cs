@@ -1,29 +1,22 @@
-using Microsoft.EntityFrameworkCore;
-using PlatformService.AsyncDataServices;
 using PlatformService.Data;
+using PlatformService.Extensions;
 using PlatformService.SyncDataServices.Grpc;
-using PlatformService.SyncDataServices.Http;
 using Secxndary.MicroserviceApp.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<IPlatformRepository, PlatformRepository>();
-builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
-builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
-builder.Services.AddGrpc();
+builder.Services.ConfigureRepository();
+builder.Services.ConfigureSyncMessaging();
+builder.Services.ConfigureAsyncMessaging();
+builder.Services.ConfigureGrpc();
 
 if (builder.Environment.IsProduction())
 {
-    var connectionString = builder.Configuration.GetConnectionString(GlobalConstants.PlatformServiceConnectionStringName);
-    Console.WriteLine($"--> Using SQL Server Db\n--> Connection string: {connectionString}");
-    builder.Services.AddDbContext<AppDbContext>(opts =>
-        opts.UseSqlServer(connectionString));
+    builder.Services.ConfigureSqlServerDatabase(builder.Configuration);
 }
 else
 {
-    Console.WriteLine("--> Using InMem Db");
-    builder.Services.AddDbContext<AppDbContext>(opts => 
-        opts.UseInMemoryDatabase(GlobalConstants.InMemoryDatabaseName));
+    builder.Services.ConfigureInMemoryDatabase(builder.Configuration);
 }
 
 builder.Services.AddControllers();

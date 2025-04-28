@@ -1,5 +1,4 @@
-using Ocelot.Cache.CacheManager;
-using Ocelot.DependencyInjection;
+using ApiGateway.Extensions;
 using Ocelot.Middleware;
 using Secxndary.MicroserviceApp.Shared;
 
@@ -10,9 +9,7 @@ builder.Services.ConfigureJwtAuthentication();
 
 if (isProd)
 {
-    builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
-    builder.Services.AddOcelot(builder.Configuration)
-        .AddCacheManager(x => x.WithDictionaryHandle());
+    builder.Services.ConfigureOcelot(builder.Configuration, builder.Environment);
 }
 
 builder.Services.AddControllers();
