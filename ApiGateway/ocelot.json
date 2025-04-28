@@ -8,17 +8,26 @@
     {
       "UpstreamPathTemplate": "/api/c/{everything}",
       "DownstreamPathTemplate": "/api/c/{everything}",
-      "DownstreamHostAndPorts": [{ "Host": "commands-clusterip-srv", "Port": 80 }]
+      "DownstreamHostAndPorts": [{ "Host": "commands-clusterip-srv", "Port": 80 }],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "UpstreamPathTemplate": "/api/platforms/{everything}",
       "DownstreamPathTemplate": "/api/platforms/{everything}",
-      "DownstreamHostAndPorts": [{ "Host": "platforms-clusterip-srv", "Port": 80 }]
+      "DownstreamHostAndPorts": [{ "Host": "platforms-clusterip-srv", "Port": 80 }],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     },
     {
       "UpstreamPathTemplate": "/api/platforms",
       "DownstreamPathTemplate": "/api/platforms",
-      "DownstreamHostAndPorts": [{ "Host": "platforms-clusterip-srv", "Port": 80 }]
+      "DownstreamHostAndPorts": [{ "Host": "platforms-clusterip-srv", "Port": 80 }],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
     }
   ]
 }
