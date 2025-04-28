@@ -20,7 +20,7 @@ builder.Services.AddControllers();
 builder.Services.ConfigureSyncMessaging();
 builder.Services.ConfigureAsyncMessaging();
 
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.ConfigureAutoMapper();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

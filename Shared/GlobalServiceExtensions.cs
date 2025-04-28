@@ -6,7 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 // ReSharper disable once CheckNamespace
 namespace Secxndary.MicroserviceApp.Shared;
 
-public static class JwtExtensions
+public static class GlobalServiceExtensions
 {
     public static void ConfigureJwtAuthentication(this IServiceCollection services)
     {
@@ -27,5 +27,23 @@ public static class JwtExtensions
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobalConstants.Secret))
                 };
             });
+    }
+
+    public static void ConfigureCors(this IServiceCollection services)
+    {
+        services.AddCors(options =>
+        {
+            options.AddPolicy(GlobalConstants.CorsPolicy, policyBuilder =>
+            {
+                policyBuilder.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
+        });
+    }
+
+    public static void ConfigureAutoMapper(this IServiceCollection services)
+    {
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     }
 }
