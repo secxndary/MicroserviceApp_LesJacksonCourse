@@ -2,6 +2,7 @@ using System.Text;
 using CommandService.EventProcessing;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using Secxndary.MicroserviceApp.Shared;
 
 namespace CommandService.AsyncDataServices;
 
@@ -24,8 +25,8 @@ public class MessageBusSubscriber : BackgroundService
 
     private void InitializeRabbitMq()
     {
-        var hostName = _configuration["RabbitMQHost"];
-        var port = int.Parse(_configuration["RabbitMQPort"]);
+        var hostName = _configuration[GlobalConstants.RabbitMQHost];
+        var port = int.Parse(_configuration[GlobalConstants.RabbitMQPort]);
 
         var factory = new ConnectionFactory
         {
@@ -35,10 +36,10 @@ public class MessageBusSubscriber : BackgroundService
 
         _connection = factory.CreateConnection();
         _channel = _connection.CreateModel();
-        _channel.ExchangeDeclare(exchange: "trigger", ExchangeType.Fanout);
+        _channel.ExchangeDeclare(exchange: GlobalConstants.ExchangeName, ExchangeType.Fanout);
 
         _queueName = _channel.QueueDeclare().QueueName;
-        _channel.QueueBind(queue: _queueName, exchange: "trigger", routingKey: string.Empty);
+        _channel.QueueBind(queue: _queueName, exchange: GlobalConstants.ExchangeName, routingKey: string.Empty);
 
         Console.WriteLine("--> Listening on the MessageBus...");
 

@@ -2,6 +2,7 @@ using System.Text;
 using System.Text.Json;
 using PlatformService.Dtos;
 using RabbitMQ.Client;
+using Secxndary.MicroserviceApp.Shared;
 
 namespace PlatformService.AsyncDataServices;
 
@@ -21,8 +22,8 @@ public class MessageBusClient : IMessageBusClient
 
     private void InitializeRabbitMq()
     {
-        var hostName = _configuration["RabbitMQHost"];
-        var port = int.Parse(_configuration["RabbitMQPort"]);
+        var hostName = _configuration[GlobalConstants.RabbitMQHost];
+        var port = int.Parse(_configuration[GlobalConstants.RabbitMQPort]);
 
         var factory = new ConnectionFactory
         {
@@ -36,7 +37,7 @@ public class MessageBusClient : IMessageBusClient
 
             _connection = factory.CreateConnection();
             _channel = _connection.CreateModel();
-            _channel.ExchangeDeclare(exchange: "trigger", type: ExchangeType.Fanout);
+            _channel.ExchangeDeclare(exchange: GlobalConstants.ExchangeName, type: ExchangeType.Fanout);
 
             _connection.ConnectionShutdown += RabbitMQ_ConnectionShutdown;
 
@@ -68,7 +69,7 @@ public class MessageBusClient : IMessageBusClient
         var body = Encoding.UTF8.GetBytes(message);
 
         _channel.BasicPublish(
-            exchange: "trigger",
+            exchange: GlobalConstants.ExchangeName,
             routingKey: string.Empty,
             basicProperties: null,
             body: body);

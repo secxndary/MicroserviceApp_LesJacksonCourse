@@ -4,7 +4,9 @@ namespace Secxndary.MicroserviceApp.Shared;
 public static class GlobalConstants
 {
     public const string Secret = "my_secret_key_that_is_at_least_32_bytes_long";
-
+    
+    public const string ApplicationJson = "application/json";
+    
     public const string ValidIssuer = "https://localhost:5002";
     public const string ValidAudience = "https://localhost:5002";
 
@@ -12,11 +14,17 @@ public static class GlobalConstants
     public const string UnauthorizedErrorMessage = "Incorrect username or password";
     public const string SecurityTokenErrorMessage = "Invalid token";
 
+    public const string OcelotConfigFileName = "ocelot.json";
     public const string CorsPolicy = "EnableCORS";
     public const string ManagerRole = "Manager";
 
+    public const string RabbitMQHost = "RabbitMQHost";
+    public const string RabbitMQPort = "RabbitMQPort";
+    public const string ExchangeName = "trigger";
+
     public const string AuthServiceConnectionStringName = "AuthServiceConnection";
     public const string PlatformServiceConnectionStringName = "PlatformServiceConnection";
+    public const string CommandServiceConnectionStringName = "CommandServiceConnection";
     public const string InMemoryDatabaseName = "InMem";
 
     public const string PlatformPublishedEventName = "Platform_Published";

@@ -1,6 +1,7 @@
 using System.Text;
 using System.Text.Json;
 using PlatformService.Dtos;
+using Secxndary.MicroserviceApp.Shared;
 
 namespace PlatformService.SyncDataServices.Http;
 
@@ -21,7 +22,7 @@ public class HttpCommandDataClient : ICommandDataClient
         var httpContent = new StringContent(
             JsonSerializer.Serialize(platformReadDto),
             Encoding.UTF8,
-            "application/json");
+            GlobalConstants.ApplicationJson);
 
         var response = await _httpClient.PostAsync(
             _configuration["CommandServiceUrl"], 

@@ -9,7 +9,7 @@
         <AssemblyName>Secxndary.MicroserviceApp.Shared</AssemblyName>
         <Authors>Alexander Valdaitsev</Authors>
         <Company>Secxndary Inc.</Company>
-        <Version>1.0.5</Version>
+        <Version>1.0.7</Version>
         <Description>Shared library for authentication and constants</Description>
         <PackageTags>authentication jwt shared common constants</PackageTags>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
