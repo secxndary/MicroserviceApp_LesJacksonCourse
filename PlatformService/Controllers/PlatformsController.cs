@@ -5,6 +5,7 @@ using PlatformService.Data;
 using PlatformService.Dtos;
 using PlatformService.Models;
 using PlatformService.SyncDataServices.Http;
+using Secxndary.MicroserviceApp.Shared;
 
 namespace PlatformService.Controllers;
 
@@ -76,7 +77,7 @@ public class PlatformsController : Controller
         try
         {
             var platformPublishDto = _mapper.Map<PlatformPublishDto>(createdPlatformReadDto);
-            platformPublishDto.Event = "Platform_Published";
+            platformPublishDto.Event = GlobalConstants.PlatformPublishedEventName;
             _messageBusClient.PublishNewPlatform(platformPublishDto);
         }
         catch (Exception ex)

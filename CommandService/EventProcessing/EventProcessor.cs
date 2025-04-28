@@ -3,6 +3,7 @@ using AutoMapper;
 using CommandService.Data;
 using CommandService.Dtos;
 using CommandService.Models;
+using Secxndary.MicroserviceApp.Shared;
 
 namespace CommandService.EventProcessing;
 
@@ -40,8 +41,8 @@ public class EventProcessor : IEventProcessor
 
         switch (eventType.Event)
         {
-            case "Platform_Published":
-                Console.WriteLine("--> Platform_Published Event detected");
+            case GlobalConstants.PlatformPublishedEventName:
+                Console.WriteLine($"--> {GlobalConstants.PlatformPublishedEventName} Event detected");
                 return EventType.PlatformPublished;
             default:
                 Console.WriteLine($"--> Could not determine event type. Message: {notificationMessage}");
