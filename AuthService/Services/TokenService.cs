@@ -16,7 +16,7 @@ public class TokenService : ITokenService
 
         var tokenOptions = new JwtSecurityToken(
             issuer: GlobalConstants.ValidIssuer,
-            audience: GlobalConstants.ValidIssuer,
+            audience: GlobalConstants.ValidAudience,
             claims: claims,
             expires: DateTime.Now.AddMinutes(5),
             signingCredentials: signinCredentials);

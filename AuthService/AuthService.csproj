@@ -17,7 +17,7 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.36" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.36" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
-        <PackageReference Include="Secxndary.MicroserviceApp.Shared" Version="1.0.1" />
+        <PackageReference Include="Secxndary.MicroserviceApp.Shared" Version="1.0.5" />
     </ItemGroup>
 
     <ItemGroup>
