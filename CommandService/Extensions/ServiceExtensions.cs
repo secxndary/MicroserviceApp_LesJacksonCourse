@@ -30,7 +30,7 @@ public static class ServiceExtensions
             opts.UseSqlServer(connectionString));
     }
 
-    public static void ConfigureInMemoryDatabase(this IServiceCollection services, IConfiguration configuration)
+    public static void ConfigureInMemoryDatabase(this IServiceCollection services)
     {
         Console.WriteLine("--> Using InMem Db");
 

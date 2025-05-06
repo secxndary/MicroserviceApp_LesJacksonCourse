@@ -12,7 +12,7 @@ if (builder.Environment.IsProduction())
 }
 else
 {
-    builder.Services.ConfigureInMemoryDatabase(builder.Configuration);
+    builder.Services.ConfigureInMemoryDatabase();
 }
 
 builder.Services.AddControllers();
@@ -37,6 +37,6 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 app.MapControllers();
 
-PrepDb.PrepPopulation(app);
+PrepDb.PrepPopulation(app, builder.Environment.IsProduction());
 
 app.Run();
