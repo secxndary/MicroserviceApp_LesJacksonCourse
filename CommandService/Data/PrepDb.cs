@@ -28,6 +28,7 @@ public static class PrepDb
         ApplyMigrations(context);
 
         SeedPlatforms(repository, platforms);
+        SeedCommands(repository);
     }
 
     private static void SeedPlatforms(ICommandRepository repository, IEnumerable<Platform> platforms)
@@ -48,8 +49,29 @@ public static class PrepDb
             repository.SaveChanges();
         }
 
-        Console.WriteLine($"--> Got {platformsList.Count} platforms from PlatformService, added {addedPlatformsCount} platforms to CommandService");
+        Console.WriteLine($"--> Got {platformsList.Count} platform(s) from PlatformService, added {addedPlatformsCount} platform(s) to CommandService");
     }
+
+    private static void SeedCommands(ICommandRepository repository)
+    {
+        Console.WriteLine("--> Seeding new commands...");
+
+        var commands = new List<Command>
+        {
+            new() { HowTo = "Build a .NET project", CommandLine = "dotnet build", PlatformId = 1 },
+            new() { HowTo = "Create a database", CommandLine = "CREATE DATABASE <database_name>", PlatformId = 2 },
+            new() { HowTo = "Get deployments list", CommandLine = "kubectl get deployments", PlatformId = 3 } 
+        };
+
+        foreach (var command in commands)
+        {
+            repository.CreateCommand(command.PlatformId, command);
+        }
+
+        repository.SaveChanges();
+
+        Console.WriteLine($"--> Created {commands.Count} command(s)");
+    } 
 
     private static void ApplyMigrations(AppDbContext context)
     {
