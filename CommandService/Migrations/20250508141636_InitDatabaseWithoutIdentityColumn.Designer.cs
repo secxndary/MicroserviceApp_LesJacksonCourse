@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CommandService.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250428161116_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20250508141636_InitDatabaseWithoutIdentityColumn")]
+    partial class InitDatabaseWithoutIdentityColumn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,17 +52,15 @@ namespace CommandService.Migrations
             modelBuilder.Entity("CommandService.Models.Platform", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("ExternalId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Id");
 
