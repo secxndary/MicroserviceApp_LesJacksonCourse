@@ -41,6 +41,16 @@ public class AppDbContext : DbContext
 
         modelBuilder.Entity<Command>(command =>
         {
+            command.HasKey(c => c.Id);
+
+            command.Property(c => c.HowTo)
+                .IsRequired()
+                .HasMaxLength(2000);
+
+            command.Property(c => c.CommandLine)
+                .IsRequired()
+                .HasMaxLength(1000);
+
             command
                 .HasOne(c => c.Platform)
                 .WithMany(p => p.Commands)

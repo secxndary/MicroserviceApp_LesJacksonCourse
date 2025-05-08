@@ -4,7 +4,7 @@
 
 namespace CommandService.Migrations
 {
-    public partial class InitDatabaseWithoutIdentityColumn : Migration
+    public partial class InitDatabaseWithoutIdentityAndAnnotations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,8 +27,8 @@ namespace CommandService.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    HowTo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CommandLine = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HowTo = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    CommandLine = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     PlatformId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

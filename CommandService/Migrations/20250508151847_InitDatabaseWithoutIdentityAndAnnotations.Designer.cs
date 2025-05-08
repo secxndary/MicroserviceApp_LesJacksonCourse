@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CommandService.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250508141636_InitDatabaseWithoutIdentityColumn")]
-    partial class InitDatabaseWithoutIdentityColumn
+    [Migration("20250508151847_InitDatabaseWithoutIdentityAndAnnotations")]
+    partial class InitDatabaseWithoutIdentityAndAnnotations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,11 +33,13 @@ namespace CommandService.Migrations
 
                     b.Property<string>("CommandLine")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<string>("HowTo")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
 
                     b.Property<int>("PlatformId")
                         .HasColumnType("int");
