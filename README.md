@@ -20,10 +20,8 @@
 cd PlatformService
 docker build -t {YOUR_DOCKER_ID}/platformservice .
 docker push {YOUR_DOCKER_ID}/platformservice
-cd ..\CommandService
-docker build -t {YOUR_DOCKER_ID}/commandservice .
-docker push {YOUR_DOCKER_ID}/commandservice
 ```
+Выполнить вышеописанные команды для всех сервисов: `CommandService`, `AuthService`, `ApiGateway`
 
 
 #### 2.1. (Опционально) Запустить контейнеры для проверки синхронной связи между сервисами через HTTP по ClusterIP:
@@ -38,11 +36,12 @@ docker run -p 8080:80 {YOUR_DOCKER_ID}/commandservice
 cd k8s
 kubectl apply -f platforms-depl.yaml
 kubectl apply -f commands-depl.yaml
-kubectl apply -f platforms-np-srv.yaml
+kubectl apply -f auth-depl.yaml
+kubectl apply -f apigw-depl.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.0/deploy/static/provider/aws/deploy.yaml
 kubectl apply -f ingress-srv.yaml
 ```
-Найти команду `kubectl apply` с актуальной версией Ingress Nginx можно здесь:
+Найти команду `kubectl apply` с актуальной версией Ingress Nginx можно здесь: <br />
 https://kubernetes.github.io/ingress-nginx/deploy/#network-load-balancer-nlb
 
 
@@ -90,6 +89,7 @@ gRPC конфигурируется в проекте `PlatformService` в сл�
 - `Protos/platforms.proto` – сам proto-файл; 
 - `PlatformService/appsettings.Production.json` – указываются URL и протоколы для gRPC (порт 666, протокол HTTP/2) и Web API (порт 80, протокол HTTP/1);
 - `CommandService/appsettings.Production.json` – указываются URL и порт (666) к gRPC Platform в Production Environment. <br />
+
 #### Для генерации кода классов на основании proto-файлов необходимо собрать проект `PlatformService`:
 ```
 cd PlatformService
@@ -97,10 +97,21 @@ dotnet build
 ```
 
 
+### 8. Создать, загрузить и добавить в проект NuGet-пакет с Shared-кодом:
+1. Создать и выгрузить NuGet-пакет по [гайду с MSDN](https://learn.microsoft.com/ru-ru/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)
+2. После загрузки каждой новой версии пакета необходимо подождать ~20 минут, пока он проиндексируется и появится в списке доступных пакетов
+3. Если нужно изменить код пакета и загрузить новую версию, то нужно выполнить следующие команды:
+```
+cd Shared
+dotnet build --configuration Release
+dotnet pack --configuration Release --output ./nupkg
+cd .\nupkg\
+dotnet nuget push Secxndary.MicroserviceApp.Shared.1.0.1.nupkg  --api-key {YOUR_API_KEY} --source https://api.nuget.org/v3/index.json
+```
 
 <hr />
 
-### Обновление docker image и k8s deployment (например, PlatformService):
+### Обновление docker image и k8s deployment (на примере PlatformService):
 ```
 cd PlatformService
 docker build -t {YOUR_DOCKER_ID}/platformservice .
